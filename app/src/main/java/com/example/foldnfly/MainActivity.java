@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -43,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
                     foldNFlyAdapter=new FoldNFlyAdapter(MainActivity.this,foldNFlyList);
                     foldNFly_lv.setAdapter(foldNFlyAdapter);
                     foldNFly_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
                         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                             FoldNFly foldNFly=foldNFlyList.get(position);
                             Intent intent=new Intent(MainActivity.this,FoldNFlyActivity.class);
@@ -57,17 +57,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void getFoldNFly(){
+
+        Log.e("Jsoup","Test");
+
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try{
-                    for (int i=1;i<=20;i++){
+                    for (int i=1;i<=1;i++){
                         Document document=Jsoup.connect("https://www.foldnfly.com/index.html").get();
                         Elements titleLinks=document.select("div.plane");
 
                         for (int j=0;j<titleLinks.size();j++){
                             String title=titleLinks.get(j).select("b").text();
-                            String url=titleLinks.get(j).select("a").attr("href");
+                            String url="https://www.foldnfly.com/"+titleLinks.get(j).select("a").attr("href");
                             FoldNFly foldNFly=new FoldNFly(title,url);
                             foldNFlyList.add(foldNFly);
                         }

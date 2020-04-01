@@ -36,7 +36,7 @@ public class FoldNFlyAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView==null){
+        if (convertView == null){
             view= LayoutInflater.from(mContext).inflate(R.layout.foldnfly_item,null);
             viewHolder=new ViewHolder();
             viewHolder.foldNFlyTitle=(TextView)view.findViewById(R.id.flodnfly_item);

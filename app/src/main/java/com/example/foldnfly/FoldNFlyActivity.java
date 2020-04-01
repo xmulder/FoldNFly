@@ -1,5 +1,6 @@
 package com.example.foldnfly;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -14,6 +15,9 @@ public class FoldNFlyActivity extends AppCompatActivity {
         setContentView(R.layout.foldnfly_display);
         foldNFlyUrl=getIntent().getStringExtra("foldNFly_url");
         WebView webView=(WebView)findViewById(R.id.foldNfly_web_view);
+        if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.O){
+            webView.getSettings().setSafeBrowsingEnabled(false);
+        }
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient());
         webView.loadUrl(foldNFlyUrl);

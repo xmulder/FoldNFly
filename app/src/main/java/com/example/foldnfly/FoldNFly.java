@@ -1,7 +1,7 @@
 package com.example.foldnfly;
 
 public class FoldNFly {
-    private static String Url;
+    private String Url;
     private String Title;
 
     public FoldNFly(String Title, String Url){
@@ -13,8 +13,7 @@ public class FoldNFly {
         return Title;
     }
 
-    public static String getUrl(){
+    public String getUrl(){
         return Url;
     }
-
 }
