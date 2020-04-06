@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -39,7 +40,9 @@ public class FoldNFlyAdapter extends BaseAdapter {
         if (convertView == null){
             view= LayoutInflater.from(mContext).inflate(R.layout.foldnfly_item,null);
             viewHolder=new ViewHolder();
+            viewHolder.foldNFlyImage=(ImageView)view.findViewById(R.id.foldnfly_image);
             viewHolder.foldNFlyTitle=(TextView)view.findViewById(R.id.flodnfly_item);
+            viewHolder.foldNFlyDiff=(TextView)view.findViewById(R.id.foldnfly_diff);
             view.setTag(viewHolder);
         }
         else{
@@ -47,12 +50,15 @@ public class FoldNFlyAdapter extends BaseAdapter {
             viewHolder=(ViewHolder)view.getTag();
         }
         viewHolder.foldNFlyTitle.setText(foldNFlyList.get(position).getTitle());
+        viewHolder.foldNFlyDiff.setText(foldNFlyList.get(position).getDiff());
         return view;
     }
 
 
     class ViewHolder{
+        ImageView foldNFlyImage;
         TextView foldNFlyTitle;
+        TextView foldNFlyDiff;
     }
 
 }

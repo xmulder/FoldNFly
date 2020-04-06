@@ -71,7 +71,8 @@ public class MainActivity extends AppCompatActivity {
                         for (int j=0;j<titleLinks.size();j++){
                             String title=titleLinks.get(j).select("b").text();
                             String url="https://www.foldnfly.com/"+titleLinks.get(j).select("a").attr("href");
-                            FoldNFly foldNFly=new FoldNFly(title,url);
+                            String diff=titleLinks.get(j).select("a").select("div.tags").select("span.diff").text();
+                            FoldNFly foldNFly=new FoldNFly(title,url,diff);
                             foldNFlyList.add(foldNFly);
                         }
                     }
