@@ -4,11 +4,13 @@ public class FoldNFly {
     private String Url;
     private String Title;
     private String Diff;
+    private String ImageUrl;
 
-    public FoldNFly(String Title, String Url,String Diff){
+    public FoldNFly(String Title, String Url, String Diff,String ImageUrl){
         this.Title=Title;
         this.Url=Url;
         this.Diff=Diff;
+        this.ImageUrl=ImageUrl;
     }
 
     public String getTitle(){
@@ -20,5 +22,7 @@ public class FoldNFly {
     }
 
     public String getDiff(){return Diff;}
+
+    public String getImageUrl(){return ImageUrl;}
 
 }
