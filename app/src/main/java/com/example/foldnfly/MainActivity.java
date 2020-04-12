@@ -2,6 +2,7 @@ package com.example.foldnfly;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -16,6 +17,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,7 +74,10 @@ public class MainActivity extends AppCompatActivity {
                             String title=titleLinks.get(j).select("b").text();
                             String url="https://www.foldnfly.com/"+titleLinks.get(j).select("a").attr("href");
                             String diff=titleLinks.get(j).select("a").select("div.tags").select("span.diff").text();
-                            String imageurl="https://www.foldnfly.com/data/"+titleLinks.get(j)+"square.jpg";
+                            @SuppressLint("DefaultLocale")
+                            String image_url_string = String.format("https://www.foldnfly.com/data/%d/square.jpg", j);
+                            Log.e("Jsoup",image_url_string);
+                            Drawable imageurl=Drawable.createFromStream(new URL(image_url_string).openStream(),"square.jpg");
                             FoldNFly foldNFly=new FoldNFly(title,url,diff,imageurl);
                             foldNFlyList.add(foldNFly);
                         }

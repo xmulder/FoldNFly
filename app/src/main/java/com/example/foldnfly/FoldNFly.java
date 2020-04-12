@@ -1,12 +1,14 @@
 package com.example.foldnfly;
 
+import android.graphics.drawable.Drawable;
+
 public class FoldNFly {
     private String Url;
     private String Title;
     private String Diff;
-    private String ImageUrl;
+    private Drawable ImageUrl;
 
-    public FoldNFly(String Title, String Url, String Diff,String ImageUrl){
+    public FoldNFly(String Title, String Url, String Diff, Drawable ImageUrl){
         this.Title=Title;
         this.Url=Url;
         this.Diff=Diff;
@@ -23,6 +25,6 @@ public class FoldNFly {
 
     public String getDiff(){return Diff;}
 
-    public String getImageUrl(){return ImageUrl;}
+    public Drawable getImageUrl(){return ImageUrl;}
 
 }
