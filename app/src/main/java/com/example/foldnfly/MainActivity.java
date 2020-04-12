@@ -80,11 +80,11 @@ public class MainActivity extends AppCompatActivity {
                             Drawable imageurl=Drawable.createFromStream(new URL(image_url_string).openStream(),"square.jpg");
                             FoldNFly foldNFly=new FoldNFly(title,url,diff,imageurl);
                             foldNFlyList.add(foldNFly);
+                            Message msg=new Message();
+                            msg.what=1;
+                            foldNFly_handler.sendMessage(msg);
                         }
                     }
-                    Message msg=new Message();
-                    msg.what=1;
-                    foldNFly_handler.sendMessage(msg);
                 }
                 catch (Exception e){
                     e.printStackTrace();

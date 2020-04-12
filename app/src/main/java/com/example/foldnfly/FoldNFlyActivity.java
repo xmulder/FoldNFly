@@ -2,6 +2,7 @@ package com.example.foldnfly;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
@@ -19,6 +20,8 @@ public class FoldNFlyActivity extends AppCompatActivity {
             webView.getSettings().setSafeBrowsingEnabled(false);
         }
         webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setCacheMode(WebSettings.LOAD_DEFAULT);
+        webView.getSettings().setDomStorageEnabled(true);
         webView.setWebViewClient(new WebViewClient());
         webView.loadUrl(foldNFlyUrl);
     }
